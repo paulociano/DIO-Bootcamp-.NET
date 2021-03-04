@@ -77,11 +77,10 @@ namespace DIO.Bank
 			Console.Write("Digite o valor a ser transferido: ");
 			double valorTransferencia = double.Parse(Console.ReadLine());
 
-			Console.Write("Para realizar uma TED, digite 1. Para realizar uma DOC, digite 2.")
-			int tedoudoc = int.Parse(Console.ReadLine());
-			
-
-            listContas[indiceContaOrigem].Transferir(valorTransferencia, listContas[indiceContaDestino], TipoTransf[tedoudoc]);
+			Console.Write("Para realizar uma TED, digite 1. Para realizar uma DOC, digite 2. ");
+			int tipoTransf = int.Parse(Console.ReadLine());
+		
+            listContas[indiceContaOrigem].Transferir(valorTransferencia, listContas[indiceContaDestino], tipoTransf);
 		}
 
 		private static void InserirConta()

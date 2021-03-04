@@ -17,6 +17,7 @@ namespace DIO.Bank
 			this.Saldo = saldo;
 			this.Credito = credito;
 			this.Nome = nome;
+		
 		}
 
 		public bool Sacar(double valorSaque)
@@ -41,13 +42,20 @@ namespace DIO.Bank
             Console.WriteLine("Saldo atual da conta de {0} é {1}", this.Nome, this.Saldo);
 		}
 
-		public void Transferir(double valorTransferencia, Conta contaDestino)
-		{
-			if (this.Sacar(valorTransferencia)){
-                contaDestino.Depositar(valorTransferencia);
-            }
+		public void Transferir(double valorTransferencia, Conta contaDestino, double tipoTransf)
+		
+		{ if(tipoTransf == 1){ 	
+			if (this.Sacar(valorTransferencia + 5)) {
+			contaDestino.Depositar(valorTransferencia);
+			}
 		}
-
+		
+		if(tipoTransf == 2){ 
+            if (this.Sacar(valorTransferencia + 7)) {
+			contaDestino.Depositar(valorTransferencia);
+		}
+		}
+		}
         public override string ToString()
 		{
             string retorno = "";
